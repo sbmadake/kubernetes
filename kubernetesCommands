@@ -1,0 +1,127 @@
+
+STEP 1: Install kubectl (Kubernetes CLI)
+Ubuntu
+
+sudo apt update
+sudo apt install -y kubectl
+Verify
+
+kubectl version --client
+
+
+
+STEP 2: Install Minikube (Local Kubernetes Cluster)
+Install
+
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+Verify
+
+minikube version 
+
+
+STEP 3: Start Kubernetes Cluster
+
+minikube start
+Check cluster status:
+
+kubectl cluster-info
+Check nodes:
+
+kubectl get nodes
+
+
+STEP 4: Create Your First Deployment
+Create deployment (Nginx example)
+
+kubectl create deployment nginx-app --image=nginx
+
+Check deployment:
+
+kubectl get deployments
+Check pods:
+
+kubectl get pods
+
+
+STEP 5: Expose Application (Service)
+Expose deployment as a service:
+
+kubectl expose deployment nginx-app --type=NodePort --port=80
+Check services:
+
+kubectl get services
+Access app in browser:
+
+minikube service nginx-app
+
+STEP 6: Describe & Debug Resources
+Describe pod
+
+kubectl describe pod <pod-name>
+View logs
+
+kubectl logs <pod-name>
+Login into container
+
+kubectl exec -it <pod-name> -- /bin/bash
+
+
+
+STEP 7: Scale Application
+Scale pods manually:
+
+kubectl scale deployment nginx-app --replicas=3
+Verify:
+
+kubectl get pods
+
+
+
+STEP 8: Use YAML (Recommended Way)
+Generate deployment YAML
+
+kubectl create deployment nginx-yaml --image=nginx --dry-run=client -o yaml > deployment.yaml
+Apply YAML:
+
+kubectl apply -f deployment.yaml
+
+
+STEP 9: Update Application (Rolling Update)
+Update image:
+
+kubectl set image deployment/nginx-app nginx=nginx:latest
+Check rollout:
+
+kubectl rollout status deployment nginx-app
+Rollback if needed:
+
+kubectl rollout undo deployment nginx-app
+
+
+STEP 10: Namespaces (Optional but Important)
+Create namespace:
+
+kubectl create namespace dev
+Deploy in namespace:
+
+kubectl apply -f deployment.yaml -n dev
+List resources:
+
+kubectl get all -n dev
+
+
+STEP 11: Clean Up
+Delete deployment:
+
+kubectl delete deployment nginx-app
+Delete service:
+
+kubectl delete service nginx-app
+Stop cluster:
+
+minikube stop
+Delete cluster:
+
+minikube delete
+
