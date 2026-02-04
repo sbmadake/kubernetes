@@ -1,0 +1,200 @@
+ Problem Statement (Python Project)
+Company receives daily sales CSV files from branches. Manual Excel processing causes errors and delays. Need a Python automation system to clean, analyze, and generate reports.
+
+🔷 EPIC
+EPIC Key: SALES-EPIC-1
+Epic Name: Sales Data Automation System
+Description: Build a Python app to ingest sales CSV, clean, analyze, and generate reports.
+
+✅ STORIES under EPIC (SALES-EPIC-1)
+
+🟢 STORY 1: Upload Sales CSV File
+Story Key: SALES-101
+User Story: As a Sales Analyst, I want to upload sales CSV files so that sales data can be processed automatically.
+🎯 Acceptance Criteria
+* Only .csv files allowed
+* Required columns must exist
+* File size limit validation
+🛠 Tasks under STORY
+TASK: SALES-102 Build upload module
+TASK: SALES-103 Validate CSV format
+TASK: SALES-104 Handle upload errors
+🔹 Sub-tasks under TASK (SALES-103)
+* SALES-103-1 Check file extension
+* SALES-103-2 Validate headers (date, region, product, amount)
+* SALES-103-3 Validate empty rows
+* SALES-103-4 Validate numeric amount field
+
+🟢 STORY 2: Clean and Preprocess Data
+Story Key: SALES-105
+User Story: As a Data Engineer, I want to clean sales data so that analysis is accurate.
+🎯 Acceptance Criteria
+* Remove duplicates
+* Handle missing values
+* Standardize date format
+🛠 Tasks
+* SALES-106 Remove duplicates
+* SALES-107 Handle missing values
+* SALES-108 Standardize date format
+🔹 Sub-tasks under SALES-107
+* SALES-107-1 Identify null columns
+* SALES-107-2 Replace missing region with "Unknown"
+* SALES-107-3 Drop rows with missing amount
+* SALES-107-4 Log invalid records
+
+🟢 STORY 3: Sales Analysis Calculations
+Story Key: SALES-109
+User Story: As a Manager, I want sales summary insights so that I can track branch performance.
+🎯 Acceptance Criteria
+* Total sales per region
+* Total sales per product
+* Daily sales summary
+🛠 Tasks
+* SALES-110 Region-wise sales calculation
+* SALES-111 Product-wise sales calculation
+* SALES-112 Daily trend analysis
+🔹 Sub-tasks under SALES-110
+* SALES-110-1 Group by region
+* SALES-110-2 Sum amount
+* SALES-110-3 Sort top regions
+* SALES-110-4 Validate output accuracy
+
+🟢 STORY 4: Generate Reports (CSV & PDF)
+Story Key: SALES-113
+User Story: As a Stakeholder, I want downloadable reports so that I can share them with leadership.
+🎯 Acceptance Criteria
+* Export in CSV
+* Export in PDF
+* Include date/time in report name
+🛠 Tasks
+* SALES-114 Generate CSV report
+* SALES-115 Generate PDF report
+* SALES-116 Save report in output folder
+🔹 Sub-tasks under SALES-115
+* SALES-115-1 Create PDF layout template
+* SALES-115-2 Add summary table
+* SALES-115-3 Add charts (optional)
+* SALES-115-4 Validate PDF export
+
+🟢 STORY 5: Store Cleaned Data in Database
+Story Key: SALES-117
+User Story: As a Data Engineer, I want to store cleaned sales data so that it can be reused later.
+🎯 Acceptance Criteria
+* Store in MySQL/PostgreSQL
+* Avoid duplicate inserts
+* Create schema automatically
+🛠 Tasks
+* SALES-118 Create DB schema
+* SALES-119 Insert cleaned records
+* SALES-120 Handle duplicate entries
+🔹 Sub-tasks under SALES-119
+* SALES-119-1 Create DB connection module
+* SALES-119-2 Insert records in batch
+* SALES-119-3 Log inserted row count
+
+🟢 STORY 6: Logging and Error Monitoring
+Story Key: SALES-121
+User Story: As a Support Engineer, I want logs and error reports so that I can troubleshoot issues easily.
+🎯 Acceptance Criteria
+* Application log file should be generated
+* Errors should be captured with timestamp
+* Separate error log
+🛠 Tasks
+* SALES-122 Add logging module
+* SALES-123 Create error handling mechanism
+* SALES-124 Create audit log
+🔹 Sub-tasks under SALES-122
+* SALES-122-1 Setup Python logging config
+* SALES-122-2 Log success messages
+* SALES-122-3 Log errors and stack traces
+
+📌 Full Hierarchy View
+
+EPIC: SALES-EPIC-1 Sales Data Automation System
+ ├── STORY: SALES-101 Upload Sales CSV File
+ │    ├── TASK: SALES-102 Build upload module
+ │    ├── TASK: SALES-103 Validate CSV format
+ │    │    ├── SUB: SALES-103-1 Check extension
+ │    │    ├── SUB: SALES-103-2 Validate headers
+ │    │    ├── SUB: SALES-103-3 Validate empty rows
+ │    │    └── SUB: SALES-103-4 Validate numeric amount
+ │    └── TASK: SALES-104 Handle upload errors
+ │
+ ├── STORY: SALES-105 Clean and Preprocess Data
+ ├── STORY: SALES-109 Sales Analysis Calculations
+ ├── STORY: SALES-113 Generate Reports
+ ├── STORY: SALES-117 Store Data in Database
+ └── STORY: SALES-121 Logging and Error Monitoring
+
+
+Project: Sales Data Automation System (Python) 📌 Epic: SALES-EPIC-1
+
+👥 Team Structure (28 Members)
+🔹 Leadership / Management (4 Members)
+Member	Role	Responsibility
+Member 1	Product Owner (PO)	Requirements, backlog priority
+Member 2	Scrum Master	Sprint planning, daily standups
+Member 3	Project Manager	Delivery tracking, risk handling
+Member 4	Tech Lead	Architecture, code review, design
+🔹 Backend Python Developers (8 Members)
+Member	Role	Assigned Work
+Member 5	Python Dev 1	CSV upload module
+Member 6	Python Dev 2	CSV validation logic
+Member 7	Python Dev 3	Data cleaning module
+Member 8	Python Dev 4	Duplicate removal + null handling
+Member 9	Python Dev 5	Sales analysis calculations
+Member 10	Python Dev 6	Report generation (CSV export)
+Member 11	Python Dev 7	Report generation (PDF export)
+Member 12	Python Dev 8	Logging + error handling
+🔹 Data Engineering Team (5 Members)
+Member	Role	Assigned Work
+Member 13	Data Engineer 1	Data pipeline design
+Member 14	Data Engineer 2	Standardize date/time formats
+Member 15	Data Engineer 3	Database schema design
+Member 16	Data Engineer 4	DB insertion + batch processing
+Member 17	Data Engineer 5	Performance optimization
+🔹 Database Team (3 Members)
+Member	Role	Assigned Work
+Member 18	DBA 1	MySQL/Postgres setup
+Member 19	DBA 2	Indexing + query optimization
+Member 20	DBA 3	Backup and recovery setup
+🔹 DevOps / Cloud Team (4 Members)
+Member	Role	Assigned Work
+Member 21	DevOps Engineer 1	Dockerfile + containerization
+Member 22	DevOps Engineer 2	Kubernetes deployment YAML
+Member 23	Cloud Engineer	AWS S3 integration + IAM
+Member 24	CI/CD Engineer	GitHub Actions / Jenkins pipeline
+🔹 QA / Testing Team (3 Members)
+Member	Role	Assigned Work
+Member 25	QA Lead	Test strategy + test plan
+Member 26	QA Engineer 1	Functional testing + bug reporting
+Member 27	QA Engineer 2	Automation testing + regression suite
+🔹 Documentation & Support (1 Member)
+Member	Role	Assigned Work
+Member 28	Technical Writer	Documentation + user manual
+✅ Example: JIRA Assignment for Issues
+JIRA Issue	Work	Assigned Member
+SALES-101	Upload CSV Story	Member 5
+SALES-103	Validate CSV Task	Member 6
+SALES-105	Data Cleaning Story	Member 7
+SALES-107	Handle missing values	Member 8
+SALES-109	Sales Analysis Story	Member 9
+SALES-114	CSV Export Report	Member 10
+SALES-115	PDF Export Report	Member 11
+SALES-122	Logging module	Member 12
+SALES-118	DB schema	Member 15
+SALES-119	DB insertion	Member 16
+SALES-201	DevOps Docker	Member 21
+SALES-202	Kubernetes YAML	Member 22
+SALES-301	AWS S3 integration	Member 23
+SALES-401	QA Testing	Member 26
+📌 How Team Works in Sprint
+Sprint 1 (Example)
+* Upload + validation + cleaning
+* DevOps starts Docker setup
+* QA starts test cases
+Sprint 2 (Example)
+* Analysis + report generation
+* Database storage
+* CI/CD pipeline
+* Final testing
